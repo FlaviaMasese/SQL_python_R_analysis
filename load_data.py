@@ -9,6 +9,7 @@ current_dir = os.path.dirname(__file__)
 #print(PASSWORD)
 #print(DATABASE_USERNAME)
 print(HOST_NAME)
+
 #%%
 #os.path.dirname(__file__)
 data1_path = os.path.join(os.path.dirname(__file__), 'data/sect3_plantingw3.csv')
@@ -46,6 +47,8 @@ psql_int = PsqlEngine(username=DATABASE_USERNAME, password=PASSWORD,
 #                                    )
 
 
+## 2. Execute the class or function created to upload the dataset 'sect3_plantingw3', 'sect4c1_plantingw3', 'sect4c2_plantingw3' and 'sect11b_harvestw3' into tables in SQL database.
+
 #%%
 table_names = ['sect3_plantingw3', 'sect4c1_plantingw3', 'sect4c2_plantingw3', 'sect11b_harvestw3']
 
@@ -60,8 +63,10 @@ for name, data in  zip(table_names, table_data):
 # %% try getting table
 psql_int.get_table_as_dataframe(database_table_name='sect3_plantingw3')
 
+
 # %% execute query to database
 
+#  3. Use the function to retrieve data from sect3_plantingw3 with the columns state, lga and sector where the sector is 1.
 query = """SELECT state, lga, sector
             FROM sect3_plantingw3
             WHERE sector=1
