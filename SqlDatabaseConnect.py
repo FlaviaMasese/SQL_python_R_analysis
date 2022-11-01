@@ -6,6 +6,7 @@ import csv
 from io import StringIO
 
 
+## use psycopg2 to connect to database
 class SqlDataWork:
     def __init__(self, host, port, username, password, database_name):
         self.host = host
@@ -27,6 +28,7 @@ class SqlDataWork:
         
 
 
+## Q1 Create class to connect to data
 class PsqlEngine:
     def __init__(self, username: str, password: Any,
                  hostname: Any, port: int,
